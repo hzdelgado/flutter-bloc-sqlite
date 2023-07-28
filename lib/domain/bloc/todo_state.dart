@@ -7,8 +7,6 @@ abstract class TodoState {
   const TodoState();
 }
 
-class TodoInitial extends TodoState {}
-
 class TodoPageLoading extends TodoState {}
 
 class TodoPageLoaded extends TodoState {
@@ -16,7 +14,7 @@ class TodoPageLoaded extends TodoState {
   const TodoPageLoaded({this.todos = const <Todo>[]});
 }
 
-class TaskError extends TodoState {
+class TodoError extends TodoState {
   final String? message;
-  const TaskError(this.message);
+  const TodoError(this.message);
 }
