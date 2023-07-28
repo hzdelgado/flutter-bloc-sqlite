@@ -1,6 +1,13 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-void main() {
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc_sqlite/data/datasources/sqlite_database.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  databaseFactory = databaseFactoryFfi;
+  await SqliteDatabase.db();
   runApp(const MyApp());
 }
 
