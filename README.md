@@ -1,16 +1,16 @@
-# flutter_bloc_sqlite
+# Flutter Todo App
 
-A new Flutter project.
+A simple flutter todo app. Allows to add, edit, and delete tasks.
 
-## Getting Started
+## Tools Used
 
-This project is a starting point for a Flutter application.
+`build_runner: ^2.4.6`\
+`flutter_bloc: ^8.1.3`\
+`sqflite: ^2.3.0`\
+`mockito: ^5.4.2`\
+`freezed: ^2.4.1`
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Demo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![ezgif com-resize](https://github.com/hzdelgado/flutter-bloc-sqlite/assets/88523514/10bcde68-ea02-45ed-93a6-79e15f8d21f0)
