@@ -13,4 +13,5 @@ A simple flutter todo app. Allows to add, edit, and delete tasks.
 
 ## Demo
 
-![ezgif com-resize](https://github.com/hzdelgado/flutter-bloc-sqlite/assets/88523514/10bcde68-ea02-45ed-93a6-79e15f8d21f0)
+![Simulator Screen Recording - iPhone 14 - 2023-07-29 at 17 54 33](https://github.com/hzdelgado/flutter-bloc-sqlite/assets/88523514/686abaa1-94f1-4489-ae93-e934e223f647)
+
