@@ -7,6 +7,7 @@ import 'package:flutter_bloc_sqlite/domain/models/todo.dart';
 import 'package:flutter_bloc_sqlite/ui/widgets/todo_input_field.dart';
 import 'package:flutter_bloc_sqlite/ui/widgets/todo_list_view.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 
 class TodoListScreen extends StatefulWidget {
   const TodoListScreen({super.key});
@@ -43,14 +44,14 @@ class _TodoListScreenState extends State<TodoListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(title: const Text(
-                      "Todo",
+        appBar: AppBar(title:  Text(
+                      DateFormat.MMMEd().format(DateTime.now()),
                       textAlign: TextAlign.start,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 50,
                           color: Colors.grey,
                           fontWeight: FontWeight.bold),
-                    ),),
+                    ), centerTitle: false,),
         body: BlocConsumer<TodoBloc, TodoState>(
           builder: (context, state) {
             if (state is TodoPageLoading) {
