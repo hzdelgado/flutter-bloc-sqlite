@@ -6,7 +6,8 @@ class TodoListView extends StatelessWidget {
   final List<Todo> todos;
   final Function valueChanged;
   final Function valueDeleted;
-  const TodoListView(this.todos, this.valueChanged, this.valueDeleted, {super.key});
+  final Function showEditDialog;
+  const TodoListView(this.todos, this.valueChanged, this.valueDeleted, this.showEditDialog, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class TodoListView extends StatelessWidget {
           }, (direction) {
             var todo = todos[index];
             valueDeleted(todo);
-          });
+          }, showEditDialog);
         });
   }
 }
