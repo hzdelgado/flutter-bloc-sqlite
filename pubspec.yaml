@@ -45,6 +45,7 @@ dependencies:
   sqflite_common_ffi: any
   sqlite3_flutter_libs:
   path_provider: ^2.0.15
+  fluttertoast: ^8.2.2
 
 dev_dependencies:
   flutter_test:

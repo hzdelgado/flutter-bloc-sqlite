@@ -17,8 +17,8 @@ class SqliteDatabase {
   }
 
   static Future<String> _getDatabasePath() async {
-    final libraryDirectory = await getDatabasesPath();
-    final path = join(libraryDirectory, 'database.db');
+    final libraryDirectory = await getApplicationDocumentsDirectory();
+    final path = join(libraryDirectory.path, 'database.db');
     return path;
   }
 
