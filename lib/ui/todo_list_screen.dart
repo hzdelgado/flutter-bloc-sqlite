@@ -35,10 +35,22 @@ class _TodoListScreenState extends State<TodoListScreen> {
     _todoBloc.add(UpdateTodo(todo: todo));
   }
 
+   void _onTodoItemDeleted(Todo todo,) {
+    _todoBloc.add(DeleteTodo(todo: todo));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
+        appBar: AppBar(title: const Text(
+                      "Todo",
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontSize: 50,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold),
+                    ),),
         body: BlocConsumer<TodoBloc, TodoState>(
           builder: (context, state) {
             if (state is TodoPageLoading) {
@@ -49,7 +61,7 @@ class _TodoListScreenState extends State<TodoListScreen> {
               }
             } else if (state is TodoError) {
               Fluttertoast.showToast(
-                  msg: state.message!,
+                  msg: state.message ?? 'error',
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.CENTER,
                   timeInSecForIosWeb: 1,
@@ -57,24 +69,17 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   textColor: Colors.white,
                   fontSize: 16.0);
             }
-            return  Padding(
-                padding: const EdgeInsets.all(30),
-                child: Column(
+            return  Column(
                   children: [
-                    const Text(
-                      "Todo",
-                      style: TextStyle(
-                          fontSize: 50,
-                          color: Colors.grey,
-                          fontWeight: FontWeight.bold),
-                    ),
+
                     TodoInputField(_onTodoItemAdded),
                     SizedBox(
+                      width: MediaQuery.sizeOf(context).width,
                       height: MediaQuery.sizeOf(context).height /2,
-                      child: TodoListView(_todoList, _onTodoItemChanged),
+                      child: TodoListView(_todoList, _onTodoItemChanged, _onTodoItemDeleted),
                     )
                   ],
-                ));
+                );
           },
           listener: (context, state) {
             //Here, you can permorn action like show toast, snackbar & dialog on the basis of state

@@ -41,7 +41,10 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     await _repository.updateTodo(event.todo);
     final state = this.state;
     if (state is TodoPageLoaded) {
-      emit(TodoPageLoaded(todos: List.from(state.todos)..add(event.todo)));
+      List<Todo> todos = state.todos.map((todo) {
+        return todo.id == event.todo.id ? event.todo : todo;
+      }).toList();
+      emit(TodoPageLoaded(todos: List.from(todos)));
     }
   }
 

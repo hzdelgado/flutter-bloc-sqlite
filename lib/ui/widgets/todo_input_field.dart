@@ -7,7 +7,9 @@ class TodoInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child: TextField(
       onSubmitted: (value) {
         var todo = Todo(title: value);
         onItemAdded(todo);
@@ -17,6 +19,6 @@ class TodoInputField extends StatelessWidget {
           hintStyle: TextStyle(
             color: Colors.lightBlue,
           )),
-    );
+    ));
   }
 }

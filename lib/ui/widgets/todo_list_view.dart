@@ -5,15 +5,22 @@ import 'package:flutter_bloc_sqlite/ui/widgets/todo_item.dart';
 class TodoListView extends StatelessWidget {
   final List<Todo> todos;
   final Function valueChanged;
-  const TodoListView(this.todos, this.valueChanged, {super.key});
+  final Function valueDeleted;
+  const TodoListView(this.todos, this.valueChanged, this.valueDeleted, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: todos.length, itemBuilder: (ctx, index) {
+        shrinkWrap: true,
+        physics: const ScrollPhysics(),
+        itemCount: todos.length,
+        itemBuilder: (ctx, index) {
           return TodoItem(todos[index], (value) {
-            var todo = todos[index].done = value? 1: 0;
+            var todo = todos[index].copyWith(done: value? 1: 0);
             valueChanged(todo, index);
+          }, (direction) {
+            var todo = todos[index];
+            valueDeleted(todo);
           });
         });
   }
